@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using System.IO;
 
 namespace simplepms
 {
@@ -15,10 +16,12 @@ namespace simplepms
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            Version ver = Assembly.GetExecutingAssembly().GetName().Version;
+            //this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            this.labelVersion.Text = string.Format("Version {0}.{1} (build {2})", ver.Major, ver.Minor, ver.Build);
             this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            //this.labelCompanyName.Text = AssemblyCompany;
+            this.labelDescription.Text = AssemblyDescription;
         }
 
         #region Assembly Attribute Accessors
@@ -105,6 +108,61 @@ namespace simplepms
         {
             //this.logoPictureBox.Image = ((Form)sender).Icon.ToBitmap();
             this.logoPictureBox.Image = this.Icon.ToBitmap();
+        }
+
+        private void tableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(linkLabel2.Tag.ToString());
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(linkLabel1.Tag.ToString());
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(linkLabel3.Text.ToString());
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.viewLicense("LICENSE");
+        }
+
+        private void viewLicense(string which) {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "simplepms.Licenses." + which; //"MyCompany.MyProduct.MyFile.txt";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                string result = reader.ReadToEnd();
+                //MessageBox.Show(result);
+                frmViewLicense viewLicense = new frmViewLicense();
+                viewLicense.ShowLicense(result);
+                //viewLicense.txt
+            }
+            
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdViewLicense_Click(object sender, EventArgs e)
+        {
+            viewLicense("icons.txt");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            viewLicense("sqlite.txt");
         }
 
     }

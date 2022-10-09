@@ -38,6 +38,13 @@ A project can have one or more milestones and each milestone can have one or mor
 4. Bug Fixing
 	- Track Github issue tracker.
 
-# Installation
+# Third party components
+
+- Images/Icons by [Yusuke Kamiyamane](https://p.yusukekamiyamane.com/) - Creative Commons 3 License.
+- SQLite .NET Driver by [System.net.sqlite.org](https://system.data.sqlite.org/) - Microsoft Public License, MSPL.
+
+# Installation and running the solution
+
+Solution can be opened in any recent Visual Studio IDE versions including the Express editions. Just download and add a reference to [SQLite .NET DLL](https://system.data.sqlite.org/) and you should be able to build.
 
 Right now, the project is in the analysis and requirements gathering stage. I'll keep updating the repo as and when things progress. If you have any thoughts on schema, features, technology, etc., feel free to shoot them through the discussion pane!

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace simplepms
 {
@@ -18,12 +19,17 @@ namespace simplepms
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            string[] ver = Application.ProductVersion.Split('.');
-            this.Text += string.Format(" ({0}.{1})", ver[0], ver[1]);
-            this.pictureBox1.Image = this.Icon.ToBitmap(); //@todo: remove later
-            IntPtr hicon = ((Bitmap)pictureBox1.Image).GetHicon();
+            //string[] ver = Application.ProductVersion.Split('.');
+            //string[] ver = Assembly.GetExecutingAssembly().GetName().Version.ToString().Split('.');
+            //string[] ver = vname.Split('.');
+            Version ver = Assembly.GetExecutingAssembly().GetName().Version;
+            //MessageBox.Show(vname);
+            this.Text += string.Format(" ({0}.{1})", ver.Major, ver.Minor) + "";
+            //test
+            //this.pictureBox1.Image = this.Icon.ToBitmap(); //@todo: remove later
+            //IntPtr hicon = ((Bitmap)pictureBox1.Image).GetHicon();
             //Application.resourse
-            this.Icon = Icon.FromHandle(hicon);
+            //this.Icon = Icon.FromHandle(hicon);
             this.notifyIcon1.Icon = this.Icon;
 
             //for (int i = 1; i < tabControl1.TabCount; i++) {
