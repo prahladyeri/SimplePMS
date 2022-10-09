@@ -11,7 +11,7 @@ create table projects (
 	id integer primary key,
 	status text, -- (Pending/WIP/Complete)
 	name text,
-	type text, -- (Work/Study/Other)
+	category text, -- (Work/Study/Other)
 	tags text, -- (Tech/PHP/Python)
 	start_date datetime,
 	end_date datetime,
@@ -21,16 +21,20 @@ create table projects (
 create table milestones (
 	id integer primary key,
 	project_id int,
+	name text,
 	status text,
+	tags text,
 	foreign key (project_id) references projects(id)
 );
 
 create table tasks (
 	id integer primary key,
 	milestone_id int,
+	name text,
 	status text,
 	category text, -- (study/work/writing/etc.)
 	tags text,
+	weekly_hrs int, -- no. of hours to be spend on this task each week.
 	notes text,
 	foreign key (milestone_id) references milestones(id)
 );

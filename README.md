@@ -10,18 +10,31 @@ Simple PMS is a Project Management application for individual freelancers, hobby
 
 # Technology
 
-Runs on any Windows OS where .NET Framework 4.0 (or above) is installed, built using C# (WinForms) technology.
+Runs on any Windows OS where .NET Framework 4.0 (or above) is installed, built with C# (WinForms) technology.
 
 # Features
 
 - Create and track projects, milestones and tasks.
-- Time tracking with auto start with system tray icon.
+- Time tracking with system tray icon.
 - Create and track ad-hoc notes.
 - Create and track hierarchical notes (mind-maps).
 
-# TODO
+# Usage
 
-- Created github repository for SimplePMS.
+The SimplePMS paradigm divides a project's work details into projects, milestones and tasks. Projects have a start and end date as well as status (Pending/WIP/Complete). It also has a category (Work/Study/Other). This model is simple enough to implement most typical errands such as an online course taken or working on a side project such as this!
+
+A project can have one or more milestones and each milestone can have one or more tasks. Typical milestones and tasks for this one (Development of SimplePMS app) might include:
+
+1. Analysis
+	- Study the technical feasibility.
+2. Development
+	- Create a github repository.
+	- Create Visual C# Solution.
+	- Coding GUI and components.
+3. Testing
+	- Perform unit testing using nunit.
+4. Bug Fixing
+	- Track Github issue tracker.
 
 # Installation
 
