@@ -8,6 +8,8 @@
 
 Simple PMS is a Project Management application for individual freelancers, hobbyists, students, etc.
 
+![main screen](screenshots/main.png)
+
 # Technology
 
 Runs on any Windows OS where .NET Framework 4.0 (or above) is installed, built with C# (WinForms) technology.
