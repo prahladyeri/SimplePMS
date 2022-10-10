@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.IO;
+using System.Data;
 
 namespace simplepms
 {
-    /**
-     * Special class to store globally used variables, functions, etc.
-     */
-    public static class Util {
-        public static SQLiteConnection conn;
-        public static SQLiteCommand cmd;
-    }
+
 
     /**
      * Special class for tagging controls with information

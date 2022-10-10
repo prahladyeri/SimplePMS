@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.cmdCancel = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTags = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cboCategory = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTags = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.cmdSave = new System.Windows.Forms.Button();
-            this.cmdCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,45 +84,70 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(373, 261);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // cmdCancel
             // 
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdCancel.Location = new System.Drawing.Point(3, 232);
+            this.cmdCancel.Name = "cmdCancel";
+            this.cmdCancel.Size = new System.Drawing.Size(75, 23);
+            this.cmdCancel.TabIndex = 15;
+            this.cmdCancel.Text = "Cancel";
+            this.cmdCancel.UseVisualStyleBackColor = true;
             // 
-            // txtName
+            // label7
             // 
-            this.txtName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtName.Location = new System.Drawing.Point(97, 3);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(273, 23);
-            this.txtName.TabIndex = 1;
+            this.label7.Location = new System.Drawing.Point(3, 174);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 26);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Notes:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // dtpEndDate
             // 
-            this.label2.Location = new System.Drawing.Point(3, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 26);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Status:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dtpEndDate.CustomFormat = "yyyy-MM-dd";
+            this.dtpEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndDate.Location = new System.Drawing.Point(97, 148);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(273, 23);
+            this.dtpEndDate.TabIndex = 11;
+            this.dtpEndDate.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             // 
-            // cboStatus
+            // label6
             // 
-            this.cboStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Items.AddRange(new object[] {
-            "Pending",
-            "WIP",
-            "Complete"});
-            this.cboStatus.Location = new System.Drawing.Point(97, 32);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(273, 23);
-            this.cboStatus.TabIndex = 3;
+            this.label6.Location = new System.Drawing.Point(3, 145);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 26);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "End Date:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(3, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 26);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Start Date:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtTags
+            // 
+            this.txtTags.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTags.Location = new System.Drawing.Point(97, 90);
+            this.txtTags.Name = "txtTags";
+            this.txtTags.Size = new System.Drawing.Size(273, 23);
+            this.txtTags.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(3, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 26);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Tags:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -147,31 +172,45 @@
             this.cboCategory.Size = new System.Drawing.Size(273, 23);
             this.cboCategory.TabIndex = 5;
             // 
-            // label4
+            // label1
             // 
-            this.label4.Location = new System.Drawing.Point(3, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 26);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Tags:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Name:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtTags
+            // txtName
             // 
-            this.txtTags.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTags.Location = new System.Drawing.Point(97, 90);
-            this.txtTags.Name = "txtTags";
-            this.txtTags.Size = new System.Drawing.Size(273, 23);
-            this.txtTags.TabIndex = 7;
+            this.txtName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtName.Location = new System.Drawing.Point(97, 3);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(273, 23);
+            this.txtName.TabIndex = 1;
             // 
-            // label5
+            // cboStatus
             // 
-            this.label5.Location = new System.Drawing.Point(3, 116);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 26);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Start Date:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cboStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Items.AddRange(new object[] {
+            "Pending",
+            "WIP",
+            "Complete"});
+            this.cboStatus.Location = new System.Drawing.Point(97, 32);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(273, 23);
+            this.cboStatus.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(3, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 26);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Status:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dtpStartDate
             // 
@@ -183,35 +222,6 @@
             this.dtpStartDate.Size = new System.Drawing.Size(273, 23);
             this.dtpStartDate.TabIndex = 9;
             this.dtpStartDate.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(3, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 26);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "End Date:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.CustomFormat = "yyyy-MM-dd";
-            this.dtpEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.Location = new System.Drawing.Point(97, 148);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(273, 23);
-            this.dtpEndDate.TabIndex = 11;
-            this.dtpEndDate.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(3, 174);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 26);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Notes:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtNotes
             // 
@@ -226,7 +236,6 @@
             // cmdSave
             // 
             this.cmdSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cmdSave.Location = new System.Drawing.Point(295, 232);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 23);
@@ -234,16 +243,6 @@
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
-            // 
-            // cmdCancel
-            // 
-            this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.Location = new System.Drawing.Point(3, 232);
-            this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(75, 23);
-            this.cmdCancel.TabIndex = 15;
-            this.cmdCancel.Text = "Cancel";
-            this.cmdCancel.UseVisualStyleBackColor = true;
             // 
             // frmAddProject
             // 

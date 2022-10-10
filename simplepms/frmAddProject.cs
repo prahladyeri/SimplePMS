@@ -14,6 +14,7 @@ namespace simplepms
     {
         private char mode;
         private int id = -1;
+        private DataRow row;
 
         public frmAddProject()
         {
@@ -31,24 +32,35 @@ namespace simplepms
             }
             
             this.id = id;
-            if (id != -1) {
-                Util.cmd = new SQLiteCommand("select * from projects where id=@id", Util.conn);
-                Util.cmd.Parameters.Add(new SQLiteParameter("@id", id));
-                SQLiteDataReader reader = Util.cmd.ExecuteReader();
-                reader.Read();
-                txtName.Text = reader["name"].ToString();
-                cboCategory.Text = reader["category"].ToString();
-                cboStatus.Text = reader["status"].ToString();
-                txtTags.Text = reader["tags"].ToString();
-                txtNotes.Text = reader["notes"].ToString();
-                if (!reader.IsDBNull(reader.GetOrdinal("start_date")))
+            if (id != -1)
+            {
+                //Util.cmd = new SQLiteCommand("select * from projects where id=@id", Util.conn);
+                //Util.cmd.Parameters.Add(new SQLiteParameter("@id", id));
+                //SQLiteDataReader reader = Util.cmd.ExecuteReader();
+                //reader.Read();
+                //DataTable tbl = Util.getTable("projects");
+                //tbl.DefaultView.RowFilter = "id = " + id.ToString();
+                row = Util.findById("projects", id); // tbl.DefaultView.ToTable().Rows[0];
+                //tbl.f
+                //tbl.DefaultView.RowFilter = "id = " + id.ToString();
+                txtName.Text = row["name"].ToString();
+                cboCategory.Text = row["category"].ToString();
+                cboStatus.Text = row["status"].ToString();
+                txtTags.Text = row["tags"].ToString();
+                txtNotes.Text = row["notes"].ToString();
+
+                if (!(row["start_date"] is DBNull))
                 {
-                    dtpStartDate.Value = Convert.ToDateTime(reader["start_date"]);
+                    dtpStartDate.Value = Convert.ToDateTime(row["start_date"]);
                 }
-                if (!reader.IsDBNull(reader.GetOrdinal("end_date")))
+                if (!(row["end_date"] is DBNull))
                 {
-                    dtpEndDate.Value = Convert.ToDateTime(reader["end_date"]);
+                    dtpEndDate.Value = Convert.ToDateTime(row["end_date"]);
                 }
+            }
+            else {
+                row = Util.getTable("projects").NewRow();
+                Util.getTable("projects").Rows.Add(row);
             }
             
             return this.ShowDialog();
@@ -60,6 +72,8 @@ namespace simplepms
             if (this.mode == 'a') {
                 dtpStartDate.Value = DateTime.Now;
                 dtpEndDate.Value = DateTime.Now;
+                cboCategory.SelectedIndex = 0;
+                cboStatus.SelectedIndex = 0;
             }
         }
 
@@ -76,26 +90,17 @@ namespace simplepms
                     }
                 }
             }
-            string sql = "";
-            switch (mode) { 
-                case 'a':
-                    sql = "insert into projects(status, name, category, tags, start_date, end_date, notes) values(@status,@name,@category,@tags,@start_date,@end_date,@notes)";
-                    break;
-                case 'e':
-                    sql = "update projects set status=@status, name=@name, category=@category, tags=@tags, start_date=@start_date, end_date=@end_date, notes=@notes where id=@id;";
-                    break;
-            }
-            Util.cmd = new SQLiteCommand(sql, Util.conn);
-            Util.cmd.Parameters.Add(new SQLiteParameter("@status", cboStatus.Text));
-            Util.cmd.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
-            Util.cmd.Parameters.Add(new SQLiteParameter("@category", cboCategory.Text));
-            Util.cmd.Parameters.Add(new SQLiteParameter("@tags", txtTags.Text));
-            Util.cmd.Parameters.Add(new SQLiteParameter("@start_date", dtpStartDate.Value));
-            Util.cmd.Parameters.Add(new SQLiteParameter("@end_date", dtpEndDate.Value));
-            Util.cmd.Parameters.Add(new SQLiteParameter("@notes", txtNotes.Text));
-            if (mode == 'e')
-                Util.cmd.Parameters.Add(new SQLiteParameter("@id", this.id));
-            Util.cmd.ExecuteNonQuery();
+
+            this.DialogResult = DialogResult.OK;
+            row["name"] = txtName.Text;
+            row["status"] = cboStatus.Text;
+            row["category"] = cboCategory.Text;
+            row["tags"] = txtTags.Text;
+            row["start_date"] = dtpStartDate.Value;
+            row["end_date"] = dtpEndDate.Value;
+            row["notes"] = txtNotes.Text;
+            //row.AcceptChanges();
+            Util.saveData("projects");
             MessageBox.Show("Record saved");
             this.Close();
         }
