@@ -6,6 +6,7 @@
 # Custom
 *.db
 *.bat
+simplepms-*.zip
 
 # User-specific files
 *.rsuser

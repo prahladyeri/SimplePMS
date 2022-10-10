@@ -23,9 +23,9 @@ Runs on any Windows OS where .NET Framework 4.0 (or above) is installed, built w
 
 # Usage
 
-The SimplePMS paradigm divides a project's work details into projects, milestones and tasks. Projects have a start and end date as well as status (Pending/WIP/Complete). It also has a category (Work/Study/Other). This model is simple enough to implement most typical errands such as an online course taken or working on a side project such as this!
+The SimplePMS paradigm divides a project's work details into projects, milestones and tasks. Projects have a start and end date as well as status (Pending/WIP/Complete). They also have a category (Work/Study/Other). This model is simple enough to implement most typical errands such as an online course taken or working on a side project such as this.
 
-A project can have one or more milestones and each milestone can have one or more tasks. Typical milestones and tasks for this one (Development of SimplePMS app) might include:
+A project can have one or more milestones and each milestone can have one or more tasks. Typical milestones and tasks for this project (Development of SimplePMS app) might include:
 
 1. Analysis
 	- Study the technical feasibility.
@@ -45,10 +45,14 @@ A project can have one or more milestones and each milestone can have one or mor
 
 # Installation
 
-Installation is very easy, just grab the latest build [from here](https://github.com/prahladyeri/simplepms/releases/latest), extract the ZIP archive to a folder on your computer and start simplepms.exe.
+Installation is very easy, just grab the latest build [from here](https://github.com/prahladyeri/simplepms/releases/latest), extract the ZIP archive to a folder on your computer and start simplepms.exe. When the app runs for first time, it creates the database file (`pms.db`) if it doesn't exist already.
 
 # Build
 
-Solution can be opened in any recent Visual Studio IDE including Express and Community Editions. Just download and add a reference to [System.Data.SQLite.dll](https://system.data.sqlite.org/) and you should be able to build the solution. When the app runs, it creates the database file (`pms.db`) if it doesn't exist already.
+Solution can be opened in any recent Visual Studio IDE including Express and Community Editions. Just download and add a reference to [System.Data.SQLite.dll](https://system.data.sqlite.org/) and you should be able to build the solution.
+
+## Support
+
+Report any bugs found on the [issue tracker](https://github.com/prahladyeri/SimplePMS/issues). For major customization or professional support, you can [hire me](https://prahladyeri.com/hire-me) for freelance development.
 
 Right now, the project is in the analysis and requirements gathering stage. I'll keep updating the repo as and when things progress. If you have any thoughts on schema, features, technology, etc., feel free to shoot them through the discussion pane!
