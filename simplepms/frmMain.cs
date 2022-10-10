@@ -14,8 +14,6 @@ namespace simplepms
 {
     public partial class frmMain : Form
     {
-        private SQLiteConnection conn;
-        private SQLiteCommand cmd;
 
         public frmMain()
         {
@@ -23,15 +21,24 @@ namespace simplepms
         }
 
         private void refreshProjects() {
+            //object  cboProject.SelectedItem
+            //int si = cboProject.SelectedIndex;
+            string oldKey = null;
+            if (cboProject.SelectedIndex >= 0)
+                oldKey =  ((TextData)cboProject.SelectedItem).Data ;
             cboProject.Items.Clear();
-            cmd = new SQLiteCommand("select id,name,name||':'||id as pname from projects order by name;", conn);
-            SQLiteDataReader reader= cmd.ExecuteReader();
+            Util.cmd = new SQLiteCommand("select id,name,name||':'||id as pname from projects order by name;", Util.conn);
+            SQLiteDataReader reader= Util.cmd.ExecuteReader();
             while (reader.Read()) {
                 //cboProject.Items.Add(reader["pname"].ToString());
-                TextData item = new TextData(reader["name"].ToString(), reader["id"]);
+                TextData item = new TextData(reader["name"].ToString(), reader["id"].ToString());
                 cboProject.Items.Add(item);
+                if (reader["id"].ToString() == oldKey) cboProject.SelectedItem = item;
             }
-            cboProject.SelectedIndex = 0;
+            if (oldKey == null || cboProject.SelectedIndex == -1)
+            {
+                cboProject.SelectedIndex = 0;
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -44,13 +51,13 @@ namespace simplepms
             string dbpath = AppDomain.CurrentDomain.BaseDirectory + "pms.db";
             string connstr = @"Data Source=" + dbpath + @";Version=3;New=True;Compress=True";
             bool dbexists = File.Exists(dbpath);
-            conn = new SQLiteConnection(connstr);
-            conn.Open();
+            Util.conn = new SQLiteConnection(connstr);
+            Util.conn.Open();
             if (!dbexists)
             {
                 string sql = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "schema.sql");
-                cmd = new SQLiteCommand(sql, conn);
-                cmd.ExecuteNonQuery();
+                Util.cmd = new SQLiteCommand(sql, Util.conn);
+                Util.cmd.ExecuteNonQuery();
             }
 
             //remove extra tabs
@@ -83,8 +90,39 @@ namespace simplepms
 
         private void cmdEditProject_Click(object sender, EventArgs e)
         {
-            string id =  ((TextData)cboProject.SelectedItem).Data.ToString();
-            MessageBox.Show(id, Application.ProductName);
+            string id = ((TextData)cboProject.SelectedItem).Data;
+            //MessageBox.Show(id, Application.ProductName);
+            frmAddProject addProject = new frmAddProject();
+            DialogResult r = addProject.EditRecord(Convert.ToInt32(id));
+            if (r != System.Windows.Forms.DialogResult.Cancel) {
+                this.refreshProjects();
+            }
+        }
+
+        private void cmdDeleteProject_Click(object sender, EventArgs e)
+        {
+            TextData td =  (TextData)this.cboProject.SelectedItem;
+            int id = int.Parse(td.Data);
+            if (td.Data.ToString() == "1") {
+                MessageBox.Show("Cannot delete the default (auto generated) project");
+                return;
+            }
+            DialogResult r = MessageBox.Show("Are you sure you want to delete project " + id.ToString(), "", MessageBoxButtons.YesNo);
+            if (r == System.Windows.Forms.DialogResult.No) return;
+            Util.cmd = new SQLiteCommand("delete from projects where id=@id", Util.conn);
+            Util.cmd.Parameters.Add(new SQLiteParameter("@id", id));
+            Util.cmd.ExecuteNonQuery();
+            MessageBox.Show("Record Deleted");
+            refreshProjects();
+        }
+
+        private void addProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddProject addProject = new frmAddProject();
+            DialogResult r = addProject.EditRecord();
+            if (r != System.Windows.Forms.DialogResult.Cancel) {
+                refreshProjects();
+            }
         }
     }
 }

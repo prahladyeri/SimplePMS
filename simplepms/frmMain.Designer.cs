@@ -58,6 +58,8 @@
             this.addMindMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmdDeleteProject = new System.Windows.Forms.Button();
+            this.addProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabProjects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
@@ -121,7 +123,7 @@
             this.dgvTasks.Location = new System.Drawing.Point(3, 216);
             this.dgvTasks.Name = "dgvTasks";
             this.dgvTasks.Size = new System.Drawing.Size(602, 232);
-            this.dgvTasks.TabIndex = 3;
+            this.dgvTasks.TabIndex = 7;
             // 
             // label1
             // 
@@ -134,30 +136,34 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.1405F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.8595F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.Controls.Add(this.cmdStartTracking, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.cboTask, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cboProject, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.cmdEditProject, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cmdDeleteProject, 3, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(605, 54);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // cmdStartTracking
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.cmdStartTracking, 2);
             this.cmdStartTracking.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdStartTracking.Location = new System.Drawing.Point(495, 30);
+            this.cmdStartTracking.Location = new System.Drawing.Point(466, 30);
             this.cmdStartTracking.Name = "cmdStartTracking";
-            this.cmdStartTracking.Size = new System.Drawing.Size(107, 21);
+            this.cmdStartTracking.Size = new System.Drawing.Size(136, 21);
             this.cmdStartTracking.TabIndex = 5;
             this.cmdStartTracking.Text = "Start Tracking";
             this.cmdStartTracking.UseVisualStyleBackColor = true;
@@ -167,9 +173,9 @@
             this.cboTask.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboTask.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTask.FormattingEnabled = true;
-            this.cboTask.Location = new System.Drawing.Point(117, 30);
+            this.cboTask.Location = new System.Drawing.Point(110, 30);
             this.cboTask.Name = "cboTask";
-            this.cboTask.Size = new System.Drawing.Size(372, 21);
+            this.cboTask.Size = new System.Drawing.Size(350, 21);
             this.cboTask.TabIndex = 4;
             // 
             // label4
@@ -177,7 +183,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(3, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 27);
+            this.label4.Size = new System.Drawing.Size(101, 27);
             this.label4.TabIndex = 2;
             this.label4.Text = "Track Task:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,7 +193,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 27);
+            this.label3.Size = new System.Drawing.Size(101, 27);
             this.label3.TabIndex = 0;
             this.label3.Text = "Current Project:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -197,18 +203,18 @@
             this.cboProject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProject.FormattingEnabled = true;
-            this.cboProject.Location = new System.Drawing.Point(117, 3);
+            this.cboProject.Location = new System.Drawing.Point(110, 3);
             this.cboProject.Name = "cboProject";
-            this.cboProject.Size = new System.Drawing.Size(372, 21);
+            this.cboProject.Size = new System.Drawing.Size(350, 21);
             this.cboProject.TabIndex = 1;
             // 
             // cmdEditProject
             // 
             this.cmdEditProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdEditProject.Location = new System.Drawing.Point(495, 3);
+            this.cmdEditProject.Location = new System.Drawing.Point(466, 3);
             this.cmdEditProject.Name = "cmdEditProject";
-            this.cmdEditProject.Size = new System.Drawing.Size(107, 21);
-            this.cmdEditProject.TabIndex = 3;
+            this.cmdEditProject.Size = new System.Drawing.Size(60, 21);
+            this.cmdEditProject.TabIndex = 2;
             this.cmdEditProject.Text = "Edit";
             this.cmdEditProject.UseVisualStyleBackColor = true;
             this.cmdEditProject.Click += new System.EventHandler(this.cmdEditProject_Click);
@@ -219,7 +225,7 @@
             this.dgvMilestones.Location = new System.Drawing.Point(3, 99);
             this.dgvMilestones.Name = "dgvMilestones";
             this.dgvMilestones.Size = new System.Drawing.Size(602, 84);
-            this.dgvMilestones.TabIndex = 0;
+            this.dgvMilestones.TabIndex = 6;
             // 
             // tabMindMaps
             // 
@@ -276,9 +282,10 @@
             // projectsToolStripMenuItem
             // 
             this.projectsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewTimesheetToolStripMenuItem,
+            this.addProjectToolStripMenuItem,
             this.addNotesToolStripMenuItem,
             this.addMindMapToolStripMenuItem,
+            this.viewTimesheetToolStripMenuItem,
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
@@ -314,6 +321,23 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // cmdDeleteProject
+            // 
+            this.cmdDeleteProject.Location = new System.Drawing.Point(532, 3);
+            this.cmdDeleteProject.Name = "cmdDeleteProject";
+            this.cmdDeleteProject.Size = new System.Drawing.Size(70, 21);
+            this.cmdDeleteProject.TabIndex = 3;
+            this.cmdDeleteProject.Text = "Delete";
+            this.cmdDeleteProject.UseVisualStyleBackColor = true;
+            this.cmdDeleteProject.Click += new System.EventHandler(this.cmdDeleteProject_Click);
+            // 
+            // addProjectToolStripMenuItem
+            // 
+            this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
+            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.addProjectToolStripMenuItem.Text = "Add Project";
+            this.addProjectToolStripMenuItem.Click += new System.EventHandler(this.addProjectToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -376,6 +400,8 @@
         private System.Windows.Forms.ToolStripMenuItem addMindMapToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Button cmdDeleteProject;
+        private System.Windows.Forms.ToolStripMenuItem addProjectToolStripMenuItem;
     }
 }
 
