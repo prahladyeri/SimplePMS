@@ -43,8 +43,12 @@ A project can have one or more milestones and each milestone can have one or mor
 - Images/Icons by [Yusuke Kamiyamane](https://p.yusukekamiyamane.com/) - Creative Commons 3 License.
 - SQLite .NET Driver by [System.net.sqlite.org](https://system.data.sqlite.org/) - Microsoft Public License, MSPL.
 
-# Installation and running the solution
+# Installation
 
-Solution can be opened in any recent Visual Studio IDE versions including the Express editions. Just download and add a reference to [SQLite .NET DLL](https://system.data.sqlite.org/) and you should be able to build.
+Installation is very easy, just grab the latest build [from here](https://github.com/prahladyeri/simplepms/releases/latest), extract the ZIP archive to a folder on your computer and start simplepms.exe.
+
+# Build
+
+Solution can be opened in any recent Visual Studio IDE including Express and Community Editions. Just download and add a reference to [System.Data.SQLite.dll](https://system.data.sqlite.org/) and you should be able to build the solution. When the app runs, it creates the database file (`pms.db`) if it doesn't exist already.
 
 Right now, the project is in the analysis and requirements gathering stage. I'll keep updating the repo as and when things progress. If you have any thoughts on schema, features, technology, etc., feel free to shoot them through the discussion pane!

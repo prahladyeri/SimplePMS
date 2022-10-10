@@ -42,6 +42,7 @@
             this.txtLicenseText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtLicenseText.Size = new System.Drawing.Size(513, 389);
             this.txtLicenseText.TabIndex = 0;
+            this.txtLicenseText.TabStop = false;
             // 
             // frmViewLicense
             // 

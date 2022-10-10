@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbout));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.labelDescription = new System.Windows.Forms.Label();
@@ -40,14 +41,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.lnkIcons = new System.Windows.Forms.LinkLabel();
+            this.lnkSqliteDriver = new System.Windows.Forms.LinkLabel();
             this.cmdViewLicense = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.lnkLicense = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.lnkWebsite = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -111,6 +113,7 @@
             // labelProductName
             // 
             this.labelProductName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelProductName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProductName.Location = new System.Drawing.Point(75, 0);
             this.labelProductName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
@@ -174,8 +177,8 @@
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabel1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabel2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lnkIcons, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lnkSqliteDriver, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmdViewLicense, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(72, 151);
@@ -214,29 +217,29 @@
             this.label3.Text = "SQLite Driver (DLL) by ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // linkLabel1
+            // lnkIcons
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(104, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(217, 26);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Tag = "https://p.yusukekamiyamane.com/";
-            this.linkLabel1.Text = "Yusuke Kamiyamane - Creative Commons 3 License";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lnkIcons.AutoSize = true;
+            this.lnkIcons.Location = new System.Drawing.Point(104, 0);
+            this.lnkIcons.Name = "lnkIcons";
+            this.lnkIcons.Size = new System.Drawing.Size(217, 26);
+            this.lnkIcons.TabIndex = 2;
+            this.lnkIcons.TabStop = true;
+            this.lnkIcons.Tag = "https://p.yusukekamiyamane.com/";
+            this.lnkIcons.Text = "Yusuke Kamiyamane - Creative Commons 3 License";
+            this.lnkIcons.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // linkLabel2
+            // lnkSqliteDriver
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(104, 29);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(216, 26);
-            this.linkLabel2.TabIndex = 3;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Tag = "https://system.data.sqlite.org/";
-            this.linkLabel2.Text = "System.data.sqlite.org - Microsoft Public License, MSPL.";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.lnkSqliteDriver.AutoSize = true;
+            this.lnkSqliteDriver.Location = new System.Drawing.Point(104, 29);
+            this.lnkSqliteDriver.Name = "lnkSqliteDriver";
+            this.lnkSqliteDriver.Size = new System.Drawing.Size(216, 26);
+            this.lnkSqliteDriver.TabIndex = 3;
+            this.lnkSqliteDriver.TabStop = true;
+            this.lnkSqliteDriver.Tag = "https://system.data.sqlite.org/";
+            this.lnkSqliteDriver.Text = "System.data.sqlite.org - Microsoft Public License, MSPL.";
+            this.lnkSqliteDriver.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // cmdViewLicense
             // 
@@ -252,11 +255,11 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.40659F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.59341F));
-            this.tableLayoutPanel2.Controls.Add(this.linkLabel4, 1, 0);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.48598F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.51402F));
+            this.tableLayoutPanel2.Controls.Add(this.lnkLicense, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.linkLabel3, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lnkWebsite, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(72, 77);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -266,42 +269,43 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(428, 46);
             this.tableLayoutPanel2.TabIndex = 29;
             // 
-            // linkLabel4
+            // lnkLicense
             // 
-            this.linkLabel4.Location = new System.Drawing.Point(81, 0);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(38, 17);
-            this.linkLabel4.TabIndex = 3;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "MIT";
-            this.linkLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            this.lnkLicense.Location = new System.Drawing.Point(64, 0);
+            this.lnkLicense.Name = "lnkLicense";
+            this.lnkLicense.Size = new System.Drawing.Size(227, 19);
+            this.lnkLicense.TabIndex = 3;
+            this.lnkLicense.TabStop = true;
+            this.lnkLicense.Text = "MIT License";
+            this.lnkLicense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lnkLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // label4
             // 
             this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 19);
+            this.label4.Size = new System.Drawing.Size(55, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "License";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // linkLabel3
+            // lnkWebsite
             // 
-            this.linkLabel3.Location = new System.Drawing.Point(81, 19);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(344, 17);
-            this.linkLabel3.TabIndex = 2;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "https://github.com/prahladyeri/SimplePMS";
-            this.linkLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            this.lnkWebsite.Location = new System.Drawing.Point(64, 19);
+            this.lnkWebsite.Name = "lnkWebsite";
+            this.lnkWebsite.Size = new System.Drawing.Size(344, 17);
+            this.lnkWebsite.TabIndex = 2;
+            this.lnkWebsite.TabStop = true;
+            this.lnkWebsite.Tag = "https://github.com/prahladyeri/SimplePMS";
+            this.lnkWebsite.Text = "https://github.com/prahladyeri/SimplePMS";
+            this.lnkWebsite.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lnkWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // label5
             // 
             this.label5.Location = new System.Drawing.Point(3, 19);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 24);
+            this.label5.Size = new System.Drawing.Size(55, 24);
             this.label5.TabIndex = 1;
             this.label5.Text = "Website";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -345,15 +349,16 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel lnkIcons;
+        private System.Windows.Forms.LinkLabel lnkSqliteDriver;
         private System.Windows.Forms.Button cmdViewLicense;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel lnkWebsite;
+        private System.Windows.Forms.LinkLabel lnkLicense;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

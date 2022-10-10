@@ -5,6 +5,7 @@
 
 # Custom
 *.db
+*.bat
 
 # User-specific files
 *.rsuser

@@ -108,6 +108,9 @@ namespace simplepms
         {
             //this.logoPictureBox.Image = ((Form)sender).Icon.ToBitmap();
             this.logoPictureBox.Image = this.Icon.ToBitmap();
+            this.toolTip1.SetToolTip(lnkIcons, lnkIcons.Tag.ToString());
+            this.toolTip1.SetToolTip(lnkSqliteDriver, lnkSqliteDriver.Tag.ToString());
+            this.toolTip1.SetToolTip(lnkWebsite, lnkWebsite.Tag.ToString());
         }
 
         private void tableLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -117,17 +120,17 @@ namespace simplepms
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(linkLabel2.Tag.ToString());
+            System.Diagnostics.Process.Start(lnkSqliteDriver.Tag.ToString());
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(linkLabel1.Tag.ToString());
+            System.Diagnostics.Process.Start(lnkIcons.Tag.ToString());
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(linkLabel3.Text.ToString());
+            System.Diagnostics.Process.Start(lnkWebsite.Text.ToString());
         }
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -142,7 +145,7 @@ namespace simplepms
             using (StreamReader reader = new StreamReader(stream))
             {
                 string result = reader.ReadToEnd();
-                //MessageBox.Show(result);
+                //MessageBox.Show(result);  
                 frmViewLicense viewLicense = new frmViewLicense();
                 viewLicense.ShowLicense(result);
                 //viewLicense.txt
