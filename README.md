@@ -49,7 +49,7 @@ Installation is very easy, just grab the latest build [from here](https://github
 
 # Build
 
-Solution can be opened in any recent Visual Studio IDE including Express and Community Editions. Just download and add a reference to [System.Data.SQLite.dll](https://system.data.sqlite.org/) and you should be able to build the solution.
+Solution can be opened in any recent Visual Studio IDE including Express and Community Editions. Just download and add a reference to [System.Data.SQLite.dll](https://system.data.sqlite.org/index.html/doc/trunk/www/downloads.wiki) and you should be able to build the solution.
 
 # Support
 
