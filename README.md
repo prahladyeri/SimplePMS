@@ -51,7 +51,7 @@ Installation is very easy, just grab the latest build [from here](https://github
 
 Solution can be opened in any recent Visual Studio IDE including Express and Community Editions. Just download and add a reference to [System.Data.SQLite.dll](https://system.data.sqlite.org/) and you should be able to build the solution.
 
-## Support
+# Support
 
 Report any bugs found on the [issue tracker](https://github.com/prahladyeri/SimplePMS/issues). For major customization or professional support, you can [hire me](https://prahladyeri.com/hire-me) for freelance development.
 
