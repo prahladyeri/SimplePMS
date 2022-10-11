@@ -34,13 +34,13 @@ namespace simplepms
             DataTable changes = dataset.Tables[table].GetChanges();
             if (changes == null) return 0;
             //SQLiteDataAdapter da = adapters[tableName];
+            adapter.SelectCommand.CommandText = "select * from " + table + ";";
             SQLiteCommandBuilder scb = new SQLiteCommandBuilder(adapter);
             scb.ConflictOption = ConflictOption.CompareRowVersion;
             //int cnt = adapter.Update(changes);
             //int cnt = adapter.Update(dataset, table);
             int cnt = adapter.Update(getTable(table));
-            //int cnt = adapter.Update(changes, table);
-            dataset.Tables[table].AcceptChanges();
+            //dataset.Tables[table].AcceptChanges();
             return cnt;
             //scb.last
         }
@@ -61,8 +61,8 @@ namespace simplepms
             Util.conn.Open();
             if (!dbexists)
             {
-                //Util.cmd = new SQLiteCommand(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "schema.sql"), Util.conn);
-                //Util.cmd.ExecuteNonQuery();
+               SQLiteCommand  cmd = new SQLiteCommand(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "schema.sql"), Util.conn);
+                cmd.ExecuteNonQuery();
             }
             //fetch all tables to adapter
             adapter = new SQLiteDataAdapter("select * from projects; select * from milestones; select * from tasks;", conn);

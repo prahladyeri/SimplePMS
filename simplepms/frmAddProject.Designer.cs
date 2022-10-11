@@ -90,9 +90,10 @@
             this.cmdCancel.Location = new System.Drawing.Point(3, 232);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(75, 23);
-            this.cmdCancel.TabIndex = 15;
+            this.cmdCancel.TabIndex = 8;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // label7
             // 
@@ -111,7 +112,7 @@
             this.dtpEndDate.Location = new System.Drawing.Point(97, 148);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(273, 23);
-            this.dtpEndDate.TabIndex = 11;
+            this.dtpEndDate.TabIndex = 5;
             this.dtpEndDate.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             // 
             // label6
@@ -138,7 +139,7 @@
             this.txtTags.Location = new System.Drawing.Point(97, 90);
             this.txtTags.Name = "txtTags";
             this.txtTags.Size = new System.Drawing.Size(273, 23);
-            this.txtTags.TabIndex = 7;
+            this.txtTags.TabIndex = 3;
             // 
             // label4
             // 
@@ -170,7 +171,7 @@
             this.cboCategory.Location = new System.Drawing.Point(97, 61);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(273, 23);
-            this.cboCategory.TabIndex = 5;
+            this.cboCategory.TabIndex = 2;
             // 
             // label1
             // 
@@ -187,7 +188,7 @@
             this.txtName.Location = new System.Drawing.Point(97, 3);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(273, 23);
-            this.txtName.TabIndex = 1;
+            this.txtName.TabIndex = 0;
             // 
             // cboStatus
             // 
@@ -201,7 +202,7 @@
             this.cboStatus.Location = new System.Drawing.Point(97, 32);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(273, 23);
-            this.cboStatus.TabIndex = 3;
+            this.cboStatus.TabIndex = 1;
             // 
             // label2
             // 
@@ -220,7 +221,7 @@
             this.dtpStartDate.Location = new System.Drawing.Point(97, 119);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(273, 23);
-            this.dtpStartDate.TabIndex = 9;
+            this.dtpStartDate.TabIndex = 4;
             this.dtpStartDate.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             // 
             // txtNotes
@@ -231,7 +232,7 @@
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtNotes.Size = new System.Drawing.Size(273, 49);
-            this.txtNotes.TabIndex = 13;
+            this.txtNotes.TabIndex = 6;
             // 
             // cmdSave
             // 
@@ -239,7 +240,7 @@
             this.cmdSave.Location = new System.Drawing.Point(295, 232);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 23);
-            this.cmdSave.TabIndex = 14;
+            this.cmdSave.TabIndex = 7;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
@@ -255,6 +256,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddProject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Project";

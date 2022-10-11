@@ -32,7 +32,7 @@ create table tasks (
 	milestone_id int,
 	name text,
 	status text,
-	category text, -- (study/work/writing/etc.)
+	-- category text, -- (study/work/writing/etc.)
 	tags text,
 	weekly_hrs int, -- no. of hours to be spend on this task each week.
 	notes text,

@@ -60,7 +60,6 @@ namespace simplepms
             }
             else {
                 row = Util.getTable("projects").NewRow();
-                Util.getTable("projects").Rows.Add(row);
             }
             
             return this.ShowDialog();
@@ -100,9 +99,15 @@ namespace simplepms
             row["end_date"] = dtpEndDate.Value;
             row["notes"] = txtNotes.Text;
             //row.AcceptChanges();
+            if (mode == 'a') Util.getTable("projects").Rows.Add(row);
             Util.saveData("projects");
             MessageBox.Show("Record saved");
             this.Close();
+        }
+
+        private void cmdCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
