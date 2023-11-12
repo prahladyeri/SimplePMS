@@ -49,6 +49,7 @@ Installation is very easy, just grab the latest build [from here](https://github
 # Build
 
 Solution can be opened, compiled and debugged using any Visual Studio IDE version (2010 and later).
+Just download the .NET and Interop DLLs for your version from [system.data.sqlite.org](https://system.data.sqlite.org/), add them to project reference and build the solution.
 
 # Support
 
