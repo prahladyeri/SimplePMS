@@ -165,7 +165,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Licenses\icons.txt" />
-    <EmbeddedResource Include="Licenses\sqlite.txt" />
     <Content Include="logo.ico" />
     <Content Include="schema.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
