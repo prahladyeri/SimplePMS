@@ -16,6 +16,8 @@ namespace simplepms
         private int id = -1;
         private DataRow row;
 
+        //@todo: Turn this feature (dialog with form fields) into a reusable .NET DLL
+
         public frmAddProject()
         {
             InitializeComponent();

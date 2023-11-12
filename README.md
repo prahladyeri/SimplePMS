@@ -18,7 +18,7 @@ Runs on any Windows OS where .NET Framework 4.0 (or above) is installed, built w
 
 - Create and track projects, milestones and tasks.
 - Time tracking with system tray icon.
-- Create and track ad-hoc notes.
+- Create and track ad-hoc notes with reminders.
 - Create and track hierarchical notes (mind-maps).
 
 # Usage
@@ -41,7 +41,6 @@ A project can have one or more milestones and each milestone can have one or mor
 # Third party components
 
 - Images/Icons by [Yusuke Kamiyamane](https://p.yusukekamiyamane.com/) - Creative Commons 3 License.
-- SQLite .NET Driver by [System.net.sqlite.org](https://system.data.sqlite.org/) - Microsoft Public License, MSPL.
 
 # Installation
 
@@ -49,7 +48,7 @@ Installation is very easy, just grab the latest build [from here](https://github
 
 # Build
 
-Solution can be opened in any recent Visual Studio IDE including Express and Community Editions. Just download and add a reference to [System.Data.SQLite.dll](https://system.data.sqlite.org/index.html/doc/trunk/www/downloads.wiki) and you should be able to build the solution.
+Solution can be opened, compiled and debugged using any Visual Studio IDE version (2010 and later).
 
 # Support
 

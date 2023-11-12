@@ -60,6 +60,13 @@ namespace simplepms
         [STAThread]
         static void Main()
         {
+            //check another instance running
+            var exists = System.Diagnostics.Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)).Count() > 1;
+            if (exists) {
+                MessageBox.Show(string.Format("Another instance of {0} is already running.", Application.ProductName));
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());

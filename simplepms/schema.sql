@@ -63,7 +63,8 @@ create table notes (
 	id integer primary key,
 	status text, -- Pending/WIP/Complete
 	topic text,
-	notes text
+	notes text,
+	due_date datetime -- for reminder, in case note is about an event. 
 );
 	
 -- mcq @todo

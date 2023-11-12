@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.mnuTray = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -38,6 +40,11 @@
             this.cmdStartTracking = new System.Windows.Forms.Button();
             this.cmdNewTask = new System.Windows.Forms.Button();
             this.dgvTasks = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.tags = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weekly_hrs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cmdNewMilestone = new System.Windows.Forms.Button();
@@ -62,11 +69,7 @@
             this.viewTimesheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.task_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.task_status = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.task_tags = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.task_weekly_hrs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.task_notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mnuTray.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabProjects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
@@ -77,8 +80,24 @@
             // 
             // notifyIcon1
             // 
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.ContextMenuStrip = this.mnuTray;
+            this.notifyIcon1.Text = "Simple PMS";
             this.notifyIcon1.Visible = true;
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            // 
+            // mnuTray
+            // 
+            this.mnuTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem1});
+            this.mnuTray.Name = "mnuTray";
+            this.mnuTray.Size = new System.Drawing.Size(93, 26);
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -123,6 +142,7 @@
             this.cmdStartTracking.TabIndex = 10;
             this.cmdStartTracking.Text = "Start Tracking";
             this.cmdStartTracking.UseVisualStyleBackColor = true;
+            this.cmdStartTracking.Click += new System.EventHandler(this.cmdStartTracking_Click);
             // 
             // cmdNewTask
             // 
@@ -139,11 +159,11 @@
             this.dgvTasks.AllowUserToAddRows = false;
             this.dgvTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.task_name,
-            this.task_status,
-            this.task_tags,
-            this.task_weekly_hrs,
-            this.task_notes});
+            this.name,
+            this.status,
+            this.tags,
+            this.weekly_hrs,
+            this.notes});
             this.dgvTasks.Location = new System.Drawing.Point(0, 122);
             this.dgvTasks.Name = "dgvTasks";
             this.dgvTasks.Size = new System.Drawing.Size(602, 329);
@@ -151,6 +171,44 @@
             this.dgvTasks.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTasks_CellEndEdit);
             this.dgvTasks.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTasks_RowValidated);
             this.dgvTasks.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvTasks_RowValidating);
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.Width = 130;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Status";
+            this.status.Items.AddRange(new object[] {
+            "Pending",
+            "WIP",
+            "Complete"});
+            this.status.Name = "status";
+            this.status.Width = 70;
+            // 
+            // tags
+            // 
+            this.tags.DataPropertyName = "tags";
+            this.tags.HeaderText = "Tags";
+            this.tags.Name = "tags";
+            // 
+            // weekly_hrs
+            // 
+            this.weekly_hrs.DataPropertyName = "weekly_hrs";
+            this.weekly_hrs.HeaderText = "Weekly Hrs";
+            this.weekly_hrs.Name = "weekly_hrs";
+            this.weekly_hrs.Width = 60;
+            // 
+            // notes
+            // 
+            this.notes.DataPropertyName = "notes";
+            this.notes.HeaderText = "Notes";
+            this.notes.Name = "notes";
+            this.notes.Width = 150;
             // 
             // label1
             // 
@@ -168,7 +226,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.24352F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel1.Controls.Add(this.cmdNewMilestone, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmdDeleteMilestone, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmdEditMilestone, 2, 1);
@@ -191,9 +249,9 @@
             // cmdNewMilestone
             // 
             this.cmdNewMilestone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdNewMilestone.Location = new System.Drawing.Point(525, 30);
+            this.cmdNewMilestone.Location = new System.Drawing.Point(520, 30);
             this.cmdNewMilestone.Name = "cmdNewMilestone";
-            this.cmdNewMilestone.Size = new System.Drawing.Size(77, 21);
+            this.cmdNewMilestone.Size = new System.Drawing.Size(82, 21);
             this.cmdNewMilestone.TabIndex = 12;
             this.cmdNewMilestone.Text = "New";
             this.cmdNewMilestone.UseVisualStyleBackColor = true;
@@ -202,7 +260,7 @@
             // cmdDeleteMilestone
             // 
             this.cmdDeleteMilestone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdDeleteMilestone.Location = new System.Drawing.Point(443, 30);
+            this.cmdDeleteMilestone.Location = new System.Drawing.Point(438, 30);
             this.cmdDeleteMilestone.Name = "cmdDeleteMilestone";
             this.cmdDeleteMilestone.Size = new System.Drawing.Size(76, 21);
             this.cmdDeleteMilestone.TabIndex = 11;
@@ -213,7 +271,7 @@
             // cmdEditMilestone
             // 
             this.cmdEditMilestone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdEditMilestone.Location = new System.Drawing.Point(386, 30);
+            this.cmdEditMilestone.Location = new System.Drawing.Point(381, 30);
             this.cmdEditMilestone.Name = "cmdEditMilestone";
             this.cmdEditMilestone.Size = new System.Drawing.Size(51, 21);
             this.cmdEditMilestone.TabIndex = 10;
@@ -226,9 +284,9 @@
             this.cboMilestone.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMilestone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMilestone.FormattingEnabled = true;
-            this.cboMilestone.Location = new System.Drawing.Point(113, 30);
+            this.cboMilestone.Location = new System.Drawing.Point(111, 30);
             this.cboMilestone.Name = "cboMilestone";
-            this.cboMilestone.Size = new System.Drawing.Size(267, 21);
+            this.cboMilestone.Size = new System.Drawing.Size(264, 21);
             this.cboMilestone.TabIndex = 4;
             this.cboMilestone.SelectedIndexChanged += new System.EventHandler(this.cboMilestone_SelectedIndexChanged);
             // 
@@ -237,7 +295,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(3, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 27);
+            this.label4.Size = new System.Drawing.Size(102, 27);
             this.label4.TabIndex = 2;
             this.label4.Text = "Current Milestone:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,7 +305,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 27);
+            this.label3.Size = new System.Drawing.Size(102, 27);
             this.label3.TabIndex = 0;
             this.label3.Text = "Current Project:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -257,16 +315,16 @@
             this.cboProject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProject.FormattingEnabled = true;
-            this.cboProject.Location = new System.Drawing.Point(113, 3);
+            this.cboProject.Location = new System.Drawing.Point(111, 3);
             this.cboProject.Name = "cboProject";
-            this.cboProject.Size = new System.Drawing.Size(267, 21);
+            this.cboProject.Size = new System.Drawing.Size(264, 21);
             this.cboProject.TabIndex = 1;
             this.cboProject.SelectedIndexChanged += new System.EventHandler(this.cboProject_SelectedIndexChanged);
             // 
             // cmdEditProject
             // 
             this.cmdEditProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdEditProject.Location = new System.Drawing.Point(386, 3);
+            this.cmdEditProject.Location = new System.Drawing.Point(381, 3);
             this.cmdEditProject.Name = "cmdEditProject";
             this.cmdEditProject.Size = new System.Drawing.Size(51, 21);
             this.cmdEditProject.TabIndex = 2;
@@ -277,7 +335,7 @@
             // cmdDeleteProject
             // 
             this.cmdDeleteProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdDeleteProject.Location = new System.Drawing.Point(443, 3);
+            this.cmdDeleteProject.Location = new System.Drawing.Point(438, 3);
             this.cmdDeleteProject.Name = "cmdDeleteProject";
             this.cmdDeleteProject.Size = new System.Drawing.Size(76, 21);
             this.cmdDeleteProject.TabIndex = 3;
@@ -287,7 +345,7 @@
             // 
             // cmdNewProject
             // 
-            this.cmdNewProject.Location = new System.Drawing.Point(525, 3);
+            this.cmdNewProject.Location = new System.Drawing.Point(520, 3);
             this.cmdNewProject.Name = "cmdNewProject";
             this.cmdNewProject.Size = new System.Drawing.Size(74, 21);
             this.cmdNewProject.TabIndex = 6;
@@ -318,7 +376,7 @@
             // lblStatus
             // 
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(39, 17);
+            this.lblStatus.Size = new System.Drawing.Size(38, 17);
             this.lblStatus.Text = "Ready";
             // 
             // helpToolStripMenuItem1
@@ -326,13 +384,13 @@
             this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(40, 20);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click_1);
             // 
@@ -356,79 +414,42 @@
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
-            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.projectsToolStripMenuItem.Text = "Actions";
             // 
             // addNotesToolStripMenuItem
             // 
             this.addNotesToolStripMenuItem.Name = "addNotesToolStripMenuItem";
             this.addNotesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.addNotesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.addNotesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.addNotesToolStripMenuItem.Text = "Add Note";
             // 
             // addMindMapToolStripMenuItem
             // 
             this.addMindMapToolStripMenuItem.Name = "addMindMapToolStripMenuItem";
             this.addMindMapToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.addMindMapToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.addMindMapToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.addMindMapToolStripMenuItem.Text = "Add Mind Map";
             // 
             // viewTimesheetToolStripMenuItem
             // 
             this.viewTimesheetToolStripMenuItem.Name = "viewTimesheetToolStripMenuItem";
             this.viewTimesheetToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.viewTimesheetToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.viewTimesheetToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.viewTimesheetToolStripMenuItem.Text = "View Timesheet";
+            this.viewTimesheetToolStripMenuItem.Click += new System.EventHandler(this.viewTimesheetToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(196, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // task_name
-            // 
-            this.task_name.DataPropertyName = "name";
-            this.task_name.HeaderText = "Name";
-            this.task_name.Name = "task_name";
-            this.task_name.Width = 130;
-            // 
-            // task_status
-            // 
-            this.task_status.DataPropertyName = "status";
-            this.task_status.HeaderText = "Status";
-            this.task_status.Items.AddRange(new object[] {
-            "Pending",
-            "WIP",
-            "Complete"});
-            this.task_status.Name = "task_status";
-            this.task_status.Width = 70;
-            // 
-            // task_tags
-            // 
-            this.task_tags.DataPropertyName = "tags";
-            this.task_tags.HeaderText = "Tags";
-            this.task_tags.Name = "task_tags";
-            // 
-            // task_weekly_hrs
-            // 
-            this.task_weekly_hrs.DataPropertyName = "weekly_hrs";
-            this.task_weekly_hrs.HeaderText = "Weekly Hrs";
-            this.task_weekly_hrs.Name = "task_weekly_hrs";
-            this.task_weekly_hrs.Width = 60;
-            // 
-            // task_notes
-            // 
-            this.task_notes.DataPropertyName = "notes";
-            this.task_notes.HeaderText = "Notes";
-            this.task_notes.Name = "task_notes";
-            this.task_notes.Width = 150;
             // 
             // frmMain
             // 
@@ -448,6 +469,8 @@
             this.Text = "Simple PMS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Resize += new System.EventHandler(this.frmMain_Resize);
+            this.mnuTray.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabProjects.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).EndInit();
@@ -495,11 +518,13 @@
         private System.Windows.Forms.Button cmdDeleteMilestone;
         private System.Windows.Forms.Button cmdEditMilestone;
         private System.Windows.Forms.Button cmdNewProject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn task_name;
-        private System.Windows.Forms.DataGridViewComboBoxColumn task_status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn task_tags;
-        private System.Windows.Forms.DataGridViewTextBoxColumn task_weekly_hrs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn task_notes;
+        private System.Windows.Forms.ContextMenuStrip mnuTray;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewComboBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tags;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weekly_hrs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notes;
     }
 }
 

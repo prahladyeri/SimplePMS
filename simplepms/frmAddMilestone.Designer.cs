@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtTags = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.cmdSave = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
-            this.txtTags = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,23 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(402, 117);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // txtTags
+            // 
+            this.txtTags.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTags.Location = new System.Drawing.Point(113, 61);
+            this.txtTags.Name = "txtTags";
+            this.txtTags.Size = new System.Drawing.Size(286, 23);
+            this.txtTags.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(3, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 27);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Tags:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(3, 0);
@@ -89,15 +106,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Status:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(3, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 27);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Tags:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cboStatus
             // 
@@ -133,14 +141,6 @@
             this.cmdCancel.TabIndex = 4;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
-            // 
-            // txtTags
-            // 
-            this.txtTags.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTags.Location = new System.Drawing.Point(113, 61);
-            this.txtTags.Name = "txtTags";
-            this.txtTags.Size = new System.Drawing.Size(286, 23);
-            this.txtTags.TabIndex = 2;
             // 
             // frmAddMilestone
             // 

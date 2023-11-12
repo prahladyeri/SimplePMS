@@ -14,12 +14,22 @@ namespace simplepms
 {
     public partial class frmMain : Form
     {
-        private DataRow currentProject;
-        private DataView milestones;
+        DataRow currentProject;
+        int currentTaskId = -1; //task being currently tracked
+        DateTime trackingSince;
+        DataView milestones;
+        bool quitFlag = false;
 
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        //@todo: later move to a DLL library
+        private void showBalloonTip(string text, ToolTipIcon icon=ToolTipIcon.Info) {
+            notifyIcon1.Visible = false;
+            notifyIcon1.Visible = true;
+            notifyIcon1.ShowBalloonTip(2000, Application.ProductName, text, icon);
         }
 
         private void refreshMilestones() 
@@ -56,7 +66,9 @@ namespace simplepms
         private void frmMain_Load(object sender, EventArgs e)
         {
             Version ver = Assembly.GetExecutingAssembly().GetName().Version;
-            this.Text += string.Format(" ({0}.{1})", ver.Major, ver.Minor) + "";
+            this.Text += string.Format(" ({0}.{1})", ver.Major, ver.Minor);
+            //System.Runtime.emi
+              
             this.notifyIcon1.Icon = this.Icon;
 
             //initialize db
@@ -84,12 +96,7 @@ namespace simplepms
             refreshProjects();
 
             lblStatus.Text = "Ready";
-            //timer1.Start();
-            notifyIcon1.ShowBalloonTip(20000, Application.ProductName, "I am running in the system tray.", ToolTipIcon.Info);
         }
-
-
-
 
         private void aboutToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -248,11 +255,90 @@ namespace simplepms
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //check for any pending database changes
+            if (!quitFlag) {
+                frmQuitMinimize quit = new frmQuitMinimize();
+                DialogResult r = quit.ShowDialog();
+                if (r == System.Windows.Forms.DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                    showBalloonTip(Application.ProductName + " is running in system tray.");
+                    Hide();
+                    return;
+                }
+            }
+            //check for any pending database changes before quitting
             for (int i = 0; i < Util.adapter.TableMappings.Count; i++) {
                 string tb = Util.adapter.TableMappings[i].DataSetTable;
                 Util.saveData(tb);
             }
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Are you sure you want to quit?", "", MessageBoxButtons.YesNo);
+            if (r == DialogResult.No) return;
+            quitFlag = true;
+            this.Close();
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void cmdStartTracking_Click(object sender, EventArgs e)
+        {
+            string taskname;
+            if (cmdStartTracking.Text == "Start Tracking")
+            {
+                DataGridViewRow row = dgvTasks.CurrentRow;
+                if (row == null)
+                {
+                    MessageBox.Show("No task selected.");
+                    return;
+                }
+                currentTaskId = int.Parse(row.Cells["id"].Value.ToString());
+                trackingSince = DateTime.Now;
+                taskname = dgvTasks.CurrentRow.Cells["name"].Value.ToString();
+                foreach (Control ctl in tabControl1.TabPages[0].Controls)
+                {
+                    ctl.Enabled = (ctl.Name == "cmdStartTracking");
+                }
+                cmdStartTracking.Text = "Stop Tracking";
+                showBalloonTip("Started tracking task " + taskname);
+            }
+            else {
+                taskname = dgvTasks.CurrentRow.Cells["name"].Value.ToString();
+                foreach (Control ctl in tabControl1.TabPages[0].Controls)
+                {
+                    ctl.Enabled = true; //(ctl.Name != "cmdStartTracking");
+                }
+                cmdStartTracking.Text = "Start Tracking";
+                DataRow row= Util.getTable("timesheet").NewRow();
+                row["task_id"] = currentTaskId;
+                row["fdate"] = trackingSince;
+                row["tdate"] = DateTime.Now;
+                row["notes"] = "";
+                Util.getTable("timesheet").Rows.Add(row);
+                Util.saveData("timesheet");
+                showBalloonTip("Stopped tracking task " + taskname, ToolTipIcon.Warning);
+            }
+        }
+
+        private void frmMain_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized) {
+                Hide();
+                showBalloonTip( Application.ProductName + " is running in system tray.");
+            }
+        }
+
+        private void viewTimesheetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Util.refreshdb();
+            frmView view = new frmView();
+            view.showTable("vw_timesheet");
         }
     }
 }

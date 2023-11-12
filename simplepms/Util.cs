@@ -16,11 +16,8 @@ namespace simplepms
         public static SQLiteDataAdapter adapter;
         public static DataSet dataset;
         public static SQLiteConnection conn;
-        //public static SQLiteCommand cmd;
 
-        //public static void loadGridView(System.Windows.Forms.DataGridView dgv, string name = "default") {
 
-        //}
 
         public static DataTable getTable(string name)
         {
@@ -52,6 +49,18 @@ namespace simplepms
             return null;
         }
 
+        public static void refreshdb() {
+            //check for any pending database changes before quitting
+            for (int i = 0; i < Util.adapter.TableMappings.Count; i++)
+            {
+                string tb = Util.adapter.TableMappings[i].DataSetTable;
+                Util.saveData(tb);
+            }
+            //now re-init
+            initdb();
+
+        }
+
         public static void initdb()
         {
             string dbpath = AppDomain.CurrentDomain.BaseDirectory + "pms.db";
@@ -65,10 +74,18 @@ namespace simplepms
                 cmd.ExecuteNonQuery();
             }
             //fetch all tables to adapter
-            adapter = new SQLiteDataAdapter("select * from projects; select * from milestones; select * from tasks;", conn);
+            //@todo: add a new mapping here when you add a new table
+            adapter = new SQLiteDataAdapter(@"select * from projects; 
+            select * from milestones; 
+            select * from tasks; 
+            select * from timesheet;
+            select d.name[Project], c.name [Milestone], b.name [Task], fdate [From], tdate [To], a.notes Notes from timesheet a, tasks b, milestones c, projects d where a.task_id=b.id and b.milestone_id=c.id and c.project_id=d.id order by [To] desc;
+                ", conn);
             adapter.TableMappings.Add("Table", "projects");
             adapter.TableMappings.Add("Table1", "milestones");
             adapter.TableMappings.Add("Table2", "tasks");
+            adapter.TableMappings.Add("Table3", "timesheet");
+            adapter.TableMappings.Add("Table4", "vw_timesheet");
             adapter.RowUpdated += new EventHandler<System.Data.Common.RowUpdatedEventArgs>(adapter_RowUpdated);
             dataset = new DataSet();
             adapter.Fill(dataset);
