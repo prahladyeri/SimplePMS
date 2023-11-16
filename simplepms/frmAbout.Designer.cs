@@ -173,7 +173,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.84337F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.15662F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
@@ -191,7 +191,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(331, 32);
+            this.button1.Location = new System.Drawing.Point(330, 32);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 5;
@@ -244,9 +244,9 @@
             // cmdViewLicense
             // 
             this.cmdViewLicense.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdViewLicense.Location = new System.Drawing.Point(331, 3);
+            this.cmdViewLicense.Location = new System.Drawing.Point(330, 3);
             this.cmdViewLicense.Name = "cmdViewLicense";
-            this.cmdViewLicense.Size = new System.Drawing.Size(94, 23);
+            this.cmdViewLicense.Size = new System.Drawing.Size(95, 23);
             this.cmdViewLicense.TabIndex = 4;
             this.cmdViewLicense.Text = "View License";
             this.cmdViewLicense.UseVisualStyleBackColor = true;
@@ -276,7 +276,7 @@
             this.lnkLicense.Size = new System.Drawing.Size(227, 19);
             this.lnkLicense.TabIndex = 3;
             this.lnkLicense.TabStop = true;
-            this.lnkLicense.Text = "MIT License";
+            this.lnkLicense.Text = "Apache License";
             this.lnkLicense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lnkLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
