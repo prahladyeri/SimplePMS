@@ -226,7 +226,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.24352F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tableLayoutPanel1.Controls.Add(this.cmdNewMilestone, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmdDeleteMilestone, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmdEditMilestone, 2, 1);
@@ -249,9 +249,9 @@
             // cmdNewMilestone
             // 
             this.cmdNewMilestone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdNewMilestone.Location = new System.Drawing.Point(519, 30);
+            this.cmdNewMilestone.Location = new System.Drawing.Point(517, 30);
             this.cmdNewMilestone.Name = "cmdNewMilestone";
-            this.cmdNewMilestone.Size = new System.Drawing.Size(83, 21);
+            this.cmdNewMilestone.Size = new System.Drawing.Size(85, 21);
             this.cmdNewMilestone.TabIndex = 12;
             this.cmdNewMilestone.Text = "New";
             this.cmdNewMilestone.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@
             // cmdDeleteMilestone
             // 
             this.cmdDeleteMilestone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdDeleteMilestone.Location = new System.Drawing.Point(437, 30);
+            this.cmdDeleteMilestone.Location = new System.Drawing.Point(435, 30);
             this.cmdDeleteMilestone.Name = "cmdDeleteMilestone";
             this.cmdDeleteMilestone.Size = new System.Drawing.Size(76, 21);
             this.cmdDeleteMilestone.TabIndex = 11;
@@ -271,7 +271,7 @@
             // cmdEditMilestone
             // 
             this.cmdEditMilestone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdEditMilestone.Location = new System.Drawing.Point(380, 30);
+            this.cmdEditMilestone.Location = new System.Drawing.Point(378, 30);
             this.cmdEditMilestone.Name = "cmdEditMilestone";
             this.cmdEditMilestone.Size = new System.Drawing.Size(51, 21);
             this.cmdEditMilestone.TabIndex = 10;
@@ -286,7 +286,7 @@
             this.cboMilestone.FormattingEnabled = true;
             this.cboMilestone.Location = new System.Drawing.Point(111, 30);
             this.cboMilestone.Name = "cboMilestone";
-            this.cboMilestone.Size = new System.Drawing.Size(263, 21);
+            this.cboMilestone.Size = new System.Drawing.Size(261, 21);
             this.cboMilestone.TabIndex = 4;
             this.cboMilestone.SelectedIndexChanged += new System.EventHandler(this.cboMilestone_SelectedIndexChanged);
             // 
@@ -317,14 +317,14 @@
             this.cboProject.FormattingEnabled = true;
             this.cboProject.Location = new System.Drawing.Point(111, 3);
             this.cboProject.Name = "cboProject";
-            this.cboProject.Size = new System.Drawing.Size(263, 21);
+            this.cboProject.Size = new System.Drawing.Size(261, 21);
             this.cboProject.TabIndex = 1;
             this.cboProject.SelectedIndexChanged += new System.EventHandler(this.cboProject_SelectedIndexChanged);
             // 
             // cmdEditProject
             // 
             this.cmdEditProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdEditProject.Location = new System.Drawing.Point(380, 3);
+            this.cmdEditProject.Location = new System.Drawing.Point(378, 3);
             this.cmdEditProject.Name = "cmdEditProject";
             this.cmdEditProject.Size = new System.Drawing.Size(51, 21);
             this.cmdEditProject.TabIndex = 2;
@@ -335,7 +335,7 @@
             // cmdDeleteProject
             // 
             this.cmdDeleteProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdDeleteProject.Location = new System.Drawing.Point(437, 3);
+            this.cmdDeleteProject.Location = new System.Drawing.Point(435, 3);
             this.cmdDeleteProject.Name = "cmdDeleteProject";
             this.cmdDeleteProject.Size = new System.Drawing.Size(76, 21);
             this.cmdDeleteProject.TabIndex = 3;
@@ -345,7 +345,7 @@
             // 
             // cmdNewProject
             // 
-            this.cmdNewProject.Location = new System.Drawing.Point(519, 3);
+            this.cmdNewProject.Location = new System.Drawing.Point(517, 3);
             this.cmdNewProject.Name = "cmdNewProject";
             this.cmdNewProject.Size = new System.Drawing.Size(74, 21);
             this.cmdNewProject.TabIndex = 6;

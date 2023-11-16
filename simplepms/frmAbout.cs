@@ -183,7 +183,7 @@ namespace simplepms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            viewLicense("sqlite.txt");
+            viewLicense("tango-icon-theme.txt");
         }
 
     }

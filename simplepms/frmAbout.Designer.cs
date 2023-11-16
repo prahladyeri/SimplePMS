@@ -40,7 +40,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lnkIcons = new System.Windows.Forms.LinkLabel();
             this.lnkSqliteDriver = new System.Windows.Forms.LinkLabel();
             this.cmdViewLicense = new System.Windows.Forms.Button();
@@ -176,7 +175,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lnkIcons, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lnkSqliteDriver, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmdViewLicense, 2, 0);
@@ -208,15 +206,6 @@
             this.label2.Text = "Icons/Images by ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(3, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 19);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "SQLite Driver (DLL) by ";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lnkIcons
             // 
             this.lnkIcons.AutoSize = true;
@@ -234,11 +223,11 @@
             this.lnkSqliteDriver.AutoSize = true;
             this.lnkSqliteDriver.Location = new System.Drawing.Point(104, 29);
             this.lnkSqliteDriver.Name = "lnkSqliteDriver";
-            this.lnkSqliteDriver.Size = new System.Drawing.Size(216, 26);
+            this.lnkSqliteDriver.Size = new System.Drawing.Size(123, 13);
             this.lnkSqliteDriver.TabIndex = 3;
             this.lnkSqliteDriver.TabStop = true;
-            this.lnkSqliteDriver.Tag = "https://system.data.sqlite.org/";
-            this.lnkSqliteDriver.Text = "System.data.sqlite.org - Microsoft Public License, MSPL.";
+            this.lnkSqliteDriver.Tag = "http://tango.freedesktop.org/Tango_Desktop_Project";
+            this.lnkSqliteDriver.Text = "Tango Desktop Project";
             this.lnkSqliteDriver.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // cmdViewLicense
@@ -276,7 +265,7 @@
             this.lnkLicense.Size = new System.Drawing.Size(227, 19);
             this.lnkLicense.TabIndex = 3;
             this.lnkLicense.TabStop = true;
-            this.lnkLicense.Text = "Apache License";
+            this.lnkLicense.Text = "Apache 2.0 License";
             this.lnkLicense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lnkLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
@@ -348,7 +337,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel lnkIcons;
         private System.Windows.Forms.LinkLabel lnkSqliteDriver;
         private System.Windows.Forms.Button cmdViewLicense;
