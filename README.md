@@ -39,9 +39,6 @@ A project can have one or more milestones and each milestone can have one or mor
 4. Bug Fixing
 	- Track Github issue tracker.
 
-# Third party components
-
-- Images/Icons by [Yusuke Kamiyamane](https://p.yusukekamiyamane.com/) - Creative Commons 3 License.
 
 # Installation
 
@@ -53,6 +50,4 @@ Solution can be opened, compiled and debugged using any recent Visual Studio IDE
 
 # Support
 
-Report any bugs found on the [issue tracker](https://github.com/prahladyeri/SimplePMS/issues). For major customization or professional support, you can [hire me](https://prahladyeri.com/hire-me) for freelance development.
-
-Right now, the project is in the analysis and requirements gathering stage. I'll keep updating the repo as and when things progress. If you have any thoughts on schema, features, technology, etc., feel free to shoot them through the discussion pane!
+Report any bugs found on the [issue tracker](https://github.com/prahladyeri/SimplePMS/issues). For major customization or professional support, you can [hire me](https://prahladyeri.github.io/about) for freelance development.
